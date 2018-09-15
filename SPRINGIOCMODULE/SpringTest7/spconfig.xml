@@ -1,0 +1,16 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+<bean id="id1" class="A">
+<constructor-arg>
+<value>100</value>
+</constructor-arg>
+<constructor-arg type="java.lang.String">
+<value>durgasoft</value>
+</constructor-arg>
+</bean>
+<bean id="id2" class="A">
+<constructor-arg value="10"/>
+<constructor-arg value="20"/>
+<constructor-arg value="30"/>
+</bean>
+</beans>

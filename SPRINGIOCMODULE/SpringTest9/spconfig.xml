@@ -1,0 +1,27 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+<bean id="id1" class="DemoBean">
+<constructor-arg>
+<map>
+<entry key="abc">
+<value>100</value>
+</entry>
+<entry key="xyz">
+<value>888</value>
+</entry>
+<entry key="lmn">
+<value>999</value>
+</entry>
+</map>
+</constructor-arg>
+</bean>
+<bean id="id2" class="DemoBean">
+<constructor-arg>
+<list>
+<value>anji</value>
+<value>100</value>
+<value>hyd</value>
+</list>
+</constructor-arg>
+</bean>
+</beans>
