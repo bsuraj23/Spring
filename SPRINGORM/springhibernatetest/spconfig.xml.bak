@@ -1,0 +1,35 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+<bean id="id1" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+<property name="username" value="durgatech"/>
+<property name="password" value="durgatech"/>
+</bean>
+<bean id="id2" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+<property name="dataSource">
+<ref bean="id1"/>
+</property>
+<property name="mappingResources">
+<list>
+<value>student.hbm.xml</value>
+</list>
+</property>
+<property name="hibernateProperties">
+<props>
+<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+<prop key="hibernate.show_sql">true</prop>
+</props>
+</property>
+</bean>
+<bean id="id3" class="org.springframework.orm.hibernate3.HibernateTemplate">
+<property name="sessionFactory">
+<ref bean="id2"/>
+</property>
+</bean>
+<bean id="id4" class="MyBean">
+<property name="ht">
+<ref bean="id3"/>
+</property>
+</bean>
+</beans>

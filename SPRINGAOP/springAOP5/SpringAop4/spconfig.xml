@@ -1,0 +1,34 @@
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd"> 
+ <beans>
+	<bean id="id1" class="TestBean"/>
+	<bean id="id2" class="SampleBean"/>
+	<bean id="id3" class="DemoBean"/>
+    <bean id="id4" class="WelcomeAdvice"/>
+	<bean id="id5" class="org.springframework.aop.support.ControlFlowPointcut">
+		<constructor-arg type="java.lang.Class">
+			<value>DemoBean</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.String" value="x"/>
+		
+	</bean>
+	
+	<bean id="id6" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="pointcut" ref="id5"/>
+		<property name="advice" ref="id4"/>
+	</bean>
+
+	<bean id="id7" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces" >
+			<value>TestInter</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>id6</value>
+			</list>
+		</property>
+		<property name="target">
+			<ref bean="id1"/>
+		</property>
+	</bean>
+ </beans>

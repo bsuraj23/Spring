@@ -1,0 +1,11 @@
+public class SampleBean 
+{
+	public void x(TestInter ti)
+	{
+		ti.bm();
+	}
+	public viod y(TestInter ti)
+	{
+		ti.bm();
+	}
+}
